@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+  attr_accessible :workout_distance
 
+  has_many :workouts
+
+  def workout_total
+    workout_distance = workouts.inject(0) { |result, element| result + element.distance }
+  end
 end

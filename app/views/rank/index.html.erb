@@ -1,0 +1,4 @@
+
+<% @ranking.each_with_index do |rank, index| %>
+  <h4><%= "#{index} : #{rank.email} - #{rank.workout_distance} km" %></h4>
+<% end %>

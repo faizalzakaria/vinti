@@ -1,6 +1,10 @@
 class RankController < ApplicationController
 
   def index
-    render "landing_pages/coming_soon"
+    @ranking = Rank.get_ranking
+    respond_to do |format|
+      format.html
+      format.json { render jsong: @ranking }
+    end
   end
 end

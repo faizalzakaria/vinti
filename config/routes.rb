@@ -5,4 +5,7 @@ Vinti::Application.routes.draw do
 
   get '/coming_soon', :to => "landing_pages#coming_soon", as: :coming_soon
   get '/rank', :to => "rank#index", as: :rank
+
+  resources :workouts
+
 end
