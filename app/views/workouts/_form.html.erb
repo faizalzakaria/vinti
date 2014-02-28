@@ -5,7 +5,7 @@
   </div>
   <div class="field">
     <%= f.label :workout_date %><br />
-    <%= f.datetime_select :workout_date %>
+    <%= f.datetime_select :workout_date, selected: Date.today %>
   </div>
   <div class="actions">
     <%= f.submit "Create workout", class:"btn btn-success" %>

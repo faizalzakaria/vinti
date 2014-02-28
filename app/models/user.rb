@@ -12,5 +12,7 @@ class User < ActiveRecord::Base
 
   def workout_total
     workout_distance = workouts.inject(0) { |result, element| result + element.distance }
+    self.update_attributes({:workout_distance => workout_distance})
+    workout_distance
   end
 end
