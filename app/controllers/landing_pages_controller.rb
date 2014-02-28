@@ -1,4 +1,5 @@
 class LandingPagesController < ApplicationController
+  before_filter :authenticate_user!, :only => [:coming_soon]
 
   def index
   end
