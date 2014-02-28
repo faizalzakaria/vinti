@@ -1,0 +1,10 @@
+<div class="masthead">
+  <ul class="nav nav-pills pull-right">
+    <% if user_signed_in? %>
+      <li class="active"><%= link_to "Logout", destroy_user_session_path, :method => 'delete' %></li>
+    <% else %>
+      <li class="active"><%= link_to "Login", user_session_path %></li>
+    <% end %>
+  </ul>
+  <h3 class="muted">Awesome Challange!</h3>
+</div>
