@@ -3,9 +3,12 @@
     <li class="<%= 'active' if params[:controller] == 'landing_pages' %>"><%= link_to "Home", root_path %></li>
     <li class="<%= 'active' if params[:controller] == 'rank' %>"><%= link_to "Rank", rank_path %></li>
     <% if user_signed_in? %>
-    <li class="<%= 'active' unless params[:controller].match(/devise/).nil? %>">
+      <li class="<%= 'active' if params[:controller] == 'workouts' %>">
+        <%= link_to "Workouts", workouts_path %>
+      </li>
+      <li class="<%= 'active' unless params[:controller].match(/devise/).nil? %>">
         <%= link_to "Logout", destroy_user_session_path, :method =>'delete' %>
-    </li>
+      </li>
     <% else %>
       <li class="<%= 'active' unless params[:controller].match(/devise/).nil? %>">
         <%= link_to "Login", user_session_path %>
