@@ -10,6 +10,9 @@
       <li class="<%= 'active' unless params[:controller].match(/devise/).nil? %>">
         <%= link_to "Login", user_session_path %>
       </li>
+      <li>
+        <%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %>
+      </li>
     <% end %>
   </ul>
 
