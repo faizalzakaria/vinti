@@ -7,4 +7,5 @@ class RankController < ApplicationController
       format.json { render jsong: @ranking }
     end
   end
+
 end

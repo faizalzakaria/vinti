@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
+    session['facebook_access_token'] = request.env['omniauth.auth'].credentials.token
     # You need to implement the method below in your model (e.g. app/models/user.rb)
-	logger.debug "HJHJHJHJHJHJH"
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
 
     if @user.persisted?
