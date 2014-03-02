@@ -4,5 +4,5 @@
 </h4>
 <hr>
 <% @ranking.each_with_index do |rank, index| %>
-  <h4><%= "#{index} : #{rank.name} - #{rank.workout_distance} km" %></h4>
+  <h4><%= "#{index + 1} : #{rank.name} - #{rank.workout_distance} km" %></h4>
 <% end %>
