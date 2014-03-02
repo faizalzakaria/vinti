@@ -1,8 +1,10 @@
 <div class="masthead">
   <ul class="nav nav-pills pull-right">
     <li class="<%= 'active' if params[:controller] == 'landing_pages' %>"><%= link_to "Home", root_path %></li>
-    <li class="<%= 'active' if params[:controller] == 'rank'
-    %>"><%= link_to "Rank", rank_path %></li>
+    <li class="<%= 'active' if params[:controller] == 'rank' %>"><%= link_to "Rank", rank_path %></li>
+    <% if current_user && current_user.has_role?("admin") %>
+      <li class="<%= 'active' if params[:controller] == 'admin' %>"><%= link_to "Admin", admin_root_path %></li>
+    <% end %>
     <% if user_signed_in? %>
       <li class="<%= 'active' if params[:controller] == 'workouts' %>">
         <%= link_to "Workouts", workouts_path %>
