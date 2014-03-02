@@ -14,7 +14,7 @@ class Rank
   end
 
   def self.get_ranking
-    self.update_all_workout_total
+    #self.update_all_workout_total
     User.order("workout_distance DESC")
   end
 
