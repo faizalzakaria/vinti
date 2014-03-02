@@ -9,4 +9,7 @@ class LandingPagesController < ApplicationController
 
   def coming_soon
   end
+
+  def privacy
+  end
 end
