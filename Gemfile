@@ -16,6 +16,7 @@ gem 'jquery-rails'
 
 group :development do
   gem 'debugger'
+  gem 'meta_request'
 end
 
 gem "therubyracer"
@@ -23,3 +24,4 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem 'fb_graph'
 gem 'rolify'
+
