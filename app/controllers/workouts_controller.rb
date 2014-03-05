@@ -25,6 +25,14 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def edit
+    @workout = Workout.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @workout }
+    end
+  end
+
   def create
     @workout = Workout.new(params[:workout])
     @workout.user_id = current_user.id
@@ -41,7 +49,7 @@ class WorkoutsController < ApplicationController
   end
 
   def update
-    @workout = Workout.find(param[:id])
+    @workout = Workout.find(params[:id])
     respond_to do |format|
       if @workout.update_attributes(params[:workout])
         format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
