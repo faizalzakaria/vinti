@@ -15,7 +15,7 @@
   </thead>
   <% @ranking.each_with_index do |rank, index| %>
     <tr>
-      <td><%= index %></td>
+      <td><%= index + 1 %></td>
       <td><%= rank.name %></td>
       <td><%= rank.workout_distance %></td>
       <td><%= rank.workouts.length %></td>
