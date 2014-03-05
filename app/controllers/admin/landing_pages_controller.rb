@@ -1,4 +1,4 @@
-class Admin::LandingPagesController < ApplicationController
+class Admin::LandingPagesController < Admin::BaseController
 
   def index
     @workouts = Workout.all

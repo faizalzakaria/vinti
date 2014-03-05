@@ -9,6 +9,7 @@ Vinti::Application.routes.draw do
 
   namespace :admin do
     get '/', :to => "landing_pages#index", as: :root
+    resources :workouts
   end
 
   resources :workouts

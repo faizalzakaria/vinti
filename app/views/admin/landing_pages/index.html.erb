@@ -1,37 +1,5 @@
 
-<h3>All workouts of users</h3>
+<h3>Admin Dashboard</h3>
 
-<table id="workout-table">
-  <thead>
-  <tr>
-    <th>User</th>
-    <th>Distance (in km)</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tfoot>
-    <tr>
-    </tr>
-  </tfoot>
-  <tbody>
-    <% @workouts.each do |workout| %>
-    <tr>
-      <td><%= workout.user.name %></td>
-      <td><%= workout.distance %></td>
-      <td><%= workout.workout_date %></td>
-      <td><%= link_to 'Show', workout %></td>
-      <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-      <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br />
-
-<%= link_to 'New Workout', new_workout_path, class:"btn btn-success" %>
+<%= link_to 'All user workouts', admin_workouts_path %>
 
