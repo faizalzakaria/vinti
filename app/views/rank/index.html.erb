@@ -3,6 +3,22 @@
   Ranking from march 3rd to march 9th
 </h4>
 <hr>
-<% @ranking.each_with_index do |rank, index| %>
-  <h4><%= "#{index + 1} : #{rank.name} - #{rank.workout_distance} km" %></h4>
-<% end %>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Distance</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <% @ranking.each_with_index do |rank, index| %>
+    <tr>
+      <td><%= index %></td>
+      <td><%= rank.name %></td>
+      <td><%= rank.workout_distance %></td>
+      <td><%= rank.workouts.length %></td>
+    </tr>
+  <% end %>
+</table>
