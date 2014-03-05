@@ -9,7 +9,8 @@ class Workout < ActiveRecord::Base
   validates :workout_date, presence: true
   validates :distance, :numericality => { :greater_than => 0 }
 
-  after_update :update_workout
+  after_update  :update_workout
+  after_destroy :update_workout
 
   private
 
