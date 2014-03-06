@@ -74,5 +74,5 @@ Vinti::Application.configure do
     :domain         => 'vinti.com'
   }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "vinti.com" }
+  config.action_mailer.default_url_options = { :host => "vinti.herokuapp.com" }
 end
