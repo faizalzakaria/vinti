@@ -25,3 +25,4 @@ gem "twitter-bootstrap-rails"
 gem 'fb_graph'
 gem 'rolify'
 
+gem 'dotenv'
