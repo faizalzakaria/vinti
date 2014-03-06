@@ -34,4 +34,17 @@ Vinti::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.mandrillapp.com',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['MANDRILLAPP_USERNAME'],
+    :password       => ENV['MANDRILLAPP_PASSWORD'],
+    :domain         => 'herokuapp.com'
+  }
+  config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
 end
