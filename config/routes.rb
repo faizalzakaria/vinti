@@ -4,6 +4,12 @@ Vinti::Application.routes.draw do
     :registrations      => "users/registrations"
   }
 
+  resources :users, :only => [] do
+    member do
+      get '/profile', :to => "users/profiles#index", as: :profile_page
+    end
+  end
+
   root to: "landing_pages#index"
   get '/privacy', :to => "landing_pages#privacy", as: :privacy
 

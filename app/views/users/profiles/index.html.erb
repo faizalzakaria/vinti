@@ -1,0 +1,21 @@
+<section class="profile-intro">
+<div class="profile-intro-wrap">
+  <div class="profile-img">
+    <%= image_tag("default_profile.jpg", class:"size230", alt:"#{@user.name}") %>
+  </div>
+  <div class="profile-info">
+    <h2><%= @user.name %></h2>
+    <p><%= @user.profile.quote %></p>
+
+  </div>
+  <div class="clear"></div>
+    <div class="profile-stats">
+    <ul>
+      <li><span><%= @user.profile.workouts_count %></span>Workouts</li>
+      <li><span><%= @user.profile.total_distance %></span>Distance</li>
+      <li><span><%= @user.profile.workouts_count_streak %></span>Streak</li>
+    </ul>
+  <div class="clear"></div>
+  </div>
+</div>
+</section>

@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   attr_accessible :workout_distance, :provider, :uid
 
   has_many :workouts
+  has_one  :profile, dependent: :destroy
+
+  after_create :create_profile
 
   def update_workout
     workout_distance = workouts.inject(0) { |result, element| result + element.distance }
@@ -35,4 +38,5 @@ class User < ActiveRecord::Base
       end
     end
   end
+
 end
