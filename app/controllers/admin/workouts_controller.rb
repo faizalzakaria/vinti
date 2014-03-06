@@ -1,7 +1,7 @@
 class Admin::WorkoutsController < Admin::BaseController
 
   def index
-    @workouts = Workout.filter_by_user(current_user.id)
+    @workouts = Workout.all
     respond_to do |format|
       format.html
       format.json { render json: @workouts }
@@ -69,12 +69,6 @@ class Admin::WorkoutsController < Admin::BaseController
       format.html { redirect_to workouts_url }
       format.json { head :no_content }
     end
-  end
-
-  private
-
-  def valid_user
-    current_user.id = params[:id]
   end
 
 end
