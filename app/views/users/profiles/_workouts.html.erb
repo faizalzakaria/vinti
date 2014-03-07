@@ -1,0 +1,22 @@
+<table id="workout-table">
+  <thead>
+  <tr>
+    <th>Distance (in km)</th>
+    <th>Date</th>
+  </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <td><%= @user.workout_distance %> km</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @user.workouts.each do |workout| %>
+    <tr>
+      <td><%= workout.distance %></td>
+      <td><%= workout.workout_date %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

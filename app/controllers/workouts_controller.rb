@@ -1,5 +1,6 @@
 class WorkoutsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :valid_user!, :except => [:index, :new, :create]
 
   def index
     @workouts = Workout.filter_by_user(current_user.id)
@@ -74,8 +75,8 @@ class WorkoutsController < ApplicationController
 
   private
 
-  def valid_user
-    current_user.id = params[:id]
+  def valid_user!
+    redirect_to root_path, alert: "Unathorized access" if current_user.id != Workout.find(params[:id]).user_id
   end
 
 end
