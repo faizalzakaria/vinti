@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <% @ranking.each_with_index do |rank, index| %>
-    <tr>
+    <tr data-link="<%= profile_page_user_path(rank.id) %>">
       <td><%= index + 1 %></td>
       <td><%= rank.name %></td>
       <td><%= rank.workout_distance %></td>
@@ -22,3 +22,12 @@
     </tr>
   <% end %>
 </table>
+
+<% content_for :foot do %>
+<script>
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data("link");
+  });
+</script>
+<% end %>
+
