@@ -1,7 +1,7 @@
 class RankController < ApplicationController
 
   def index
-    @ranking = Rank.get_ranking
+    @challenges = Challenge.all
     respond_to do |format|
       format.html
       format.json { render jsong: @ranking }

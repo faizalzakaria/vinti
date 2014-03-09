@@ -6,6 +6,7 @@
   <tr>
     <th>Distance (in km)</th>
     <th>Date</th>
+    <th>Challenge id</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,6 +23,7 @@
     <tr>
       <td><%= workout.distance %></td>
       <td><%= workout.workout_date %></td>
+      <td><%= workout.challenge.id %></td>
       <td><%= link_to 'Show', workout %></td>
       <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
       <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>

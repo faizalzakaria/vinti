@@ -1,0 +1,32 @@
+
+<h4>
+  <%= challenge.title %>
+</h4>
+<hr>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Distance</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <% challenge.challenge_participants.sort_by { |e| e.total_distance }.each_with_index do |participant, index| %>
+    <tr data-link="<%= profile_page_user_path(participant.id) %>">
+      <td><%= index + 1 %></td>
+      <td><%= participant.participant.name %></td>
+      <td><%= participant.total_distance %></td>
+      <td><%= participant.participant.workouts.length %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% content_for :foot do %>
+<script>
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data("link");
+  });
+</script>
+<% end %>

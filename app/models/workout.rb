@@ -36,6 +36,7 @@ class Workout < ActiveRecord::Base
 
   def update_workout
     user.update_workout
+    challenge.update_workout(user)
   end
 
 end

@@ -37,6 +37,7 @@ class WorkoutsController < ApplicationController
   def create
     @workout = Workout.new(params[:workout])
     @workout.user_id = current_user.id
+    @workout.challenge_id = Challenge.last.id
     # Current workout and set it
     respond_to do |format|
       if @workout.save

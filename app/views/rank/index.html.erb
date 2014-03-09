@@ -1,33 +1,7 @@
 
-<h4>
-  Ranking from march 3rd to march 9th
-</h4>
-<hr>
-
-<table class="bordered">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Distance</th>
-      <th>Count</th>
-    </tr>
-  </thead>
-  <% @ranking.each_with_index do |rank, index| %>
-    <tr data-link="<%= profile_page_user_path(rank.id) %>">
-      <td><%= index + 1 %></td>
-      <td><%= rank.name %></td>
-      <td><%= rank.workout_distance %></td>
-      <td><%= rank.workouts.length %></td>
-    </tr>
-  <% end %>
-</table>
-
-<% content_for :foot do %>
-<script>
-  $("tr[data-link]").click(function() {
-    window.location = $(this).data("link");
-  });
-</script>
+<% @challenges.each do |challenge| %>
+  <%= render :partial => 'rank/rank_page',
+  :locals => { :challenge => challenge } %>
+  <hr>
 <% end %>
 

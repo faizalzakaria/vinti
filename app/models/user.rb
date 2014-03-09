@@ -23,12 +23,14 @@ class User < ActiveRecord::Base
   ####################################################################
   has_many :workouts, dependent: :destroy
   has_one  :profile, dependent: :destroy
-  has_many :challenges, through: :workouts
+  has_many :challenge_participants, foreign_key: "participant_id"
+  has_many :challenges, through: :challenge_participants
 
   ####################################################################
   ## Callbacks
   ####################################################################
   after_create :create_profile
+
 
   ####################################################################
   ## Validations
@@ -38,6 +40,11 @@ class User < ActiveRecord::Base
   ####################################################################
   ## Implementations
   ####################################################################
+  def filter_challenge(challenge)
+    return scoped if challenge.nil?
+    where('challenge_id = ?', challenge.id)
+  end
+
   def update_workout
     workout_distance = workouts.inject(0) { |result, element| result + element.distance }
     self.update_attributes({:workout_distance => workout_distance})
