@@ -1,19 +1,43 @@
 class User < ActiveRecord::Base
+
+  ####################################################################
+  ## Extension
+  ####################################################################
   rolify
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
+
+  ####################################################################
+  ## Attributes
+  ####################################################################
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   attr_accessible :workout_distance, :provider, :uid
 
-  has_many :workouts
-  has_one  :profile, dependent: :destroy
 
+  ####################################################################
+  ## Relations
+  ####################################################################
+  has_many :workouts, dependent: :destroy
+  has_one  :profile, dependent: :destroy
+  has_many :challenges, through: :workouts
+
+  ####################################################################
+  ## Callbacks
+  ####################################################################
   after_create :create_profile
 
+  ####################################################################
+  ## Validations
+  ####################################################################
+
+
+  ####################################################################
+  ## Implementations
+  ####################################################################
   def update_workout
     workout_distance = workouts.inject(0) { |result, element| result + element.distance }
     self.update_attributes({:workout_distance => workout_distance})

@@ -1,0 +1,39 @@
+
+<h3>All challenges</h3>
+
+<table id="challenge-table">
+  <thead>
+  <tr>
+    <th>Challenge</th>
+    <th>Rules</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @challenges.each do |challenge| %>
+    <tr>
+      <td><%= challenge.title %></td>
+      <td><%= challenge.rules %></td>
+      <td><%= challenge.start_date %></td>
+      <td><%= challenge.end_date %></td>
+      <td><%= link_to 'Show', admin_challenge_path(challenge) %></td>
+      <td><%= link_to 'Edit', edit_admin_challenge_path(challenge) %></td>
+      <td><%= link_to 'Destroy', admin_challenge_path(challenge), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New', new_admin_challenge_path, class:"btn btn-success" %>
+<%= link_to 'Back', :back, class:"btn btn-success" %>

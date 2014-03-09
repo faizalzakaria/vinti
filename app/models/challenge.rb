@@ -1,41 +1,35 @@
-class Workout < ActiveRecord::Base
-
-  ####################################################################
-  ## Extensions
-  ####################################################################
-  include Workout::FilterConcerns
+class Challenge < ActiveRecord::Base
 
   ####################################################################
   ## Attributes
   ####################################################################
-  attr_accessible :workout_date, :distance
+  attr_accessible :title, :rules, :start_date, :end_date
 
   ####################################################################
   ## Relations
   ####################################################################
-  belongs_to :user
-  belongs_to :challenge
-
-  ####################################################################
-  ## Validations
-  ####################################################################
-  validates :workout_date, presence: true
-  validates :distance, :numericality => { :greater_than => 0 }
+  has_one  :winner, :class_name => "User", :foreign_key => "winner_id"
+  has_many :workouts, dependent: :destroy
+  has_many :users, through: :workouts
 
   ####################################################################
   ## Callbacks
   ####################################################################
-  after_save  :update_workout
-  after_destroy :update_workout
+
+  ####################################################################
+  ## Validations
+  ####################################################################
+  validates :start_date, :end_date, :title, :presence => true
+  validate :validate_end_date_before_start_date
 
   ####################################################################
   ## Implementations
   ####################################################################
 
-  private
-
-  def update_workout
-    user.update_workout
+  def validate_end_date_before_start_date
+    if end_date && start_date
+      errors.add(:end_date, "End date should be after start date") if end_date <= start_date
+    end
   end
 
 end
