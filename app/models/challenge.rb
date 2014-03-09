@@ -36,8 +36,8 @@ class Challenge < ActiveRecord::Base
   def update_workout(user)
     ws = workouts.where('user_id = ?', user.id)
     cp = challenge_participants.where('participant_id = ?', user.id)
-    if cp.nil?
-      participants << user if cp.nil
+    if cp.empty?
+      participants << user
       cp = challenge_participants.where('participant_id = ?', user.id)
     end
     cp = cp.first

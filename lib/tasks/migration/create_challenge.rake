@@ -19,6 +19,12 @@ namespace :migration do
         workout.save
       end
     end
+
+    User.find_in_batches do |group|
+      group.each do |user|
+        challenge.update_workout(user)
+      end
+    end
   end
 
 end
