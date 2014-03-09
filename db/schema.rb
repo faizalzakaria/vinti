@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140309144646) do
+ActiveRecord::Schema.define(:version => 20140309162224) do
 
   create_table "challenge_participants", :force => true do |t|
     t.integer  "challenge_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20140309144646) do
     t.decimal  "total_distance", :precision => 10, :scale => 2, :default => 0.0, :null => false
     t.datetime "created_at",                                                     :null => false
     t.datetime "updated_at",                                                     :null => false
+    t.integer  "workout_count",                                 :default => 0
   end
 
   create_table "challenges", :force => true do |t|

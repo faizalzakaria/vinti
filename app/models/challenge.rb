@@ -42,6 +42,7 @@ class Challenge < ActiveRecord::Base
     end
     cp = cp.first
     cp.total_distance = ws.inject(0) { |result, element| result + element.distance }
+    cp.workout_count = ws.length
     cp.save!
   end
 
