@@ -2,6 +2,8 @@ class WorkoutsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :valid_user!, :except => [:index, :new, :create]
 
+  CURRENTWORKOUT_ID = 18
+
   def index
     @workouts = Workout.filter_by_user(current_user.id)
     respond_to do |format|
@@ -37,7 +39,8 @@ class WorkoutsController < ApplicationController
   def create
     @workout = Workout.new(params[:workout])
     @workout.user_id = current_user.id
-    @workout.challenge_id = Challenge.last.id
+    raise Error if Challenge.find(CURRENTWORKOUT_ID).nil?
+    @workout.challenge_id = CURRENTWORKOUT_ID
     # Current workout and set it
     respond_to do |format|
       if @workout.save
