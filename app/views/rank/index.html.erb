@@ -1,4 +1,39 @@
 
+
+<h4>
+  All star!
+</h4>
+<hr>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Distance</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <% @stars.each_with_index do |user, index| %>
+    <tr data-link="<%= profile_page_user_path(user.id) %>">
+      <td><%= index + 1 %></td>
+      <td><%= user.name %></td>
+      <td><%= user.workout_distance %></td>
+      <td><%= user.workouts.length %></td>
+    </tr>
+  <% end %>
+</table>
+
+<hr>
+
+<% content_for :foot do %>
+<script>
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data("link");
+  });
+</script>
+<% end %>
+
 <% @challenges.each do |challenge| %>
   <%= render :partial => 'rank/rank_page',
   :locals => { :challenge => challenge } %>
