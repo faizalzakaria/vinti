@@ -1,0 +1,33 @@
+
+<h3>All settings</h3>
+
+<table id="setting-table">
+  <thead>
+  <tr>
+    <th>Current challenge</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+    </tr>
+  </tfoot>
+  <tbody>
+    <% @settings.each do |setting| %>
+    <tr>
+      <td><%= setting.current_challenge %></td>
+      <td><%= link_to 'Show', admin_setting_path(setting) %></td>
+      <td><%= link_to 'Edit', edit_admin_setting_path(setting) %></td>
+      <td><%= link_to 'Destroy', admin_setting_path(setting), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New', new_admin_setting_path, class:"btn btn-success" %>
+<%= link_to 'Back', :back, class:"btn btn-success" %>

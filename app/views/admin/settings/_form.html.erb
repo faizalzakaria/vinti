@@ -1,0 +1,9 @@
+<%= form_for(@setting, url: admin_setting_path(@setting)) do |f| %>
+  <div class="field">
+    <%= f.label :current_challenge %><br />
+    <%= f.text_field :current_challenge %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update setting", class:"btn btn-success" %>
+  </div>
+<% end %>

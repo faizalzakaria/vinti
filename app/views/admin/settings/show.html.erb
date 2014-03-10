@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Current Challenge:</b>
+  <%= @setting.current_challenge %>
+</p>
+
+<%= link_to 'Edit', edit_admin_setting_path(@setting) %> |
+<%= link_to 'Back', admin_settings_path %>

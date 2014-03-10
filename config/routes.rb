@@ -20,6 +20,7 @@ Vinti::Application.routes.draw do
     get '/', :to => "landing_pages#index", as: :root
     resources :workouts
     resources :challenges
+    resources :settings
   end
 
   resources :workouts
