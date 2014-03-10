@@ -79,7 +79,7 @@ class WorkoutsController < ApplicationController
   private
 
   def valid_user!
-    redirect_to root_path, alert: "Unathorized access" if current_user.id != Workout.find(params[:id]).user_id
+    redirect_to root_path, alert: "Unathorized access" if current_user.id != Workout.find(params[:id]).user_id && !current_user.has_role?('admin')
   end
 
 end
