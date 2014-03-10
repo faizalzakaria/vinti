@@ -8,6 +8,7 @@
     <th>Rules</th>
     <th>Start date</th>
     <th>End date</th>
+    <th>Id</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,6 +26,7 @@
       <td><%= challenge.rules %></td>
       <td><%= challenge.start_date %></td>
       <td><%= challenge.end_date %></td>
+      <td><%= challenge.id %></td>
       <td><%= link_to 'Show', admin_challenge_path(challenge) %></td>
       <td><%= link_to 'Edit', edit_admin_challenge_path(challenge) %></td>
       <td><%= link_to 'Destroy', admin_challenge_path(challenge), method: :delete, data: { confirm: 'Are you sure?' } %></td>
