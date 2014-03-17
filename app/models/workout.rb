@@ -8,7 +8,7 @@ class Workout < ActiveRecord::Base
   ####################################################################
   ## Attributes
   ####################################################################
-  attr_accessible :workout_date, :distance
+  attr_accessible :workout_date, :distance, :calorie
 
   ####################################################################
   ## Relations

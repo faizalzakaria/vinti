@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140309164132) do
+ActiveRecord::Schema.define(:version => 20140317020148) do
 
   create_table "challenge_participants", :force => true do |t|
     t.integer  "challenge_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20140309164132) do
     t.datetime "created_at",                                                     :null => false
     t.datetime "updated_at",                                                     :null => false
     t.integer  "workout_count",                                 :default => 0
+    t.decimal  "total_calorie",  :precision => 10, :scale => 2, :default => 0.0, :null => false
   end
 
   create_table "challenges", :force => true do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20140309164132) do
     t.datetime "updated_at",                                                                                                                        :null => false
     t.string   "quote",                                                :default => "Run like channing tatum is waiting for you at the finish line"
     t.integer  "user_id"
+    t.decimal  "total_calorie",         :precision => 10, :scale => 2, :default => 0.0,                                                             :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20140309164132) do
     t.datetime "created_at",                                                   :null => false
     t.datetime "updated_at",                                                   :null => false
     t.integer  "challenge_id"
+    t.decimal  "calorie",      :precision => 10, :scale => 2, :default => 0.0, :null => false
   end
 
 end

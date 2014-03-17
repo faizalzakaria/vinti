@@ -47,9 +47,9 @@ class User < ActiveRecord::Base
 
   def update_workout
     workout_distance = workouts.inject(0) { |result, element| result + element.distance }
+    workout_calorie  = workouts.inject(0) { |result, element| result + element.calorie }
     self.update_attributes({:workout_distance => workout_distance})
-    self.profile.update_attributes({:total_distance => workout_distance, :workouts_count => workouts.length})
-    workout_distance
+    self.profile.update_attributes({:total_distance => workout_distance, :workouts_count => workouts.length, :total_calorie => workout_calorie})
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

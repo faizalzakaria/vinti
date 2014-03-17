@@ -5,8 +5,9 @@
   <thead>
   <tr>
     <th>Distance (in km)</th>
+    <th>Calorie</th>
     <th>Date</th>
-    <th>Challenge id</th>
+    <th>Challenge</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,8 +23,9 @@
     <% @workouts.each do |workout| %>
     <tr>
       <td><%= workout.distance %></td>
+      <td><%= workout.calorie %></td>
       <td><%= workout.workout_date %></td>
-      <td><%= workout.challenge.id %></td>
+      <td><%= workout.challenge.title %></td>
       <td><%= link_to 'Show', workout %></td>
       <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
       <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>

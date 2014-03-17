@@ -4,6 +4,10 @@
     <%= f.text_field :distance %>
   </div>
   <div class="field">
+    <%= f.label :calorie %><br />
+    <%= f.text_field :calorie %>
+  </div>
+  <div class="field">
     <%= f.label :workout_date %><br />
     <%= f.datetime_select :workout_date, selected: Date.today %>
   </div>
